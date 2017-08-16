@@ -1,0 +1,77 @@
+int count=0;
+int left=0; 
+int right=0;
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(A0,OUTPUT);
+  pinMode(A1,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  left=analogRead(A0);
+  right=analogRead(A1);
+  if(left>150&&right>150){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,HIGH);
+  }
+  else if(left>150&&right<150){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,LOW);
+  }
+  else if(left<150&&right>150){
+    digitalWrite(5,LOW);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,HIGH);
+  }
+  else{
+    if(count==0){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,LOW);
+    delay(1400);
+    count++;
+    }
+    else if(count==1){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,HIGH);
+    delay(200);
+    count++;
+    }
+    else if(count==2){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,LOW);
+    delay(1400);
+    count++;
+    }
+    else if(count==3){
+    digitalWrite(5,HIGH);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,HIGH);
+    delay(100);
+    count++;
+    }
+    else if(count==4){
+    digitalWrite(5,LOW);
+    digitalWrite(6,LOW);
+    digitalWrite(7,LOW);
+    digitalWrite(8,LOW);
+    delay(10000);
+    }
+  }
+}
